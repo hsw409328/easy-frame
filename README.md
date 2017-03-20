@@ -1,12 +1,15 @@
 # easy-frame
+
 easy-frame 遵循composer psr4规范
 
 #依赖
+
 php >= 5.4
 
 php-pdo 扩展
     
 #运行
+
 git clone https://github.com/hsw409328/easy-frame.git
 
 cd easy-frame 
@@ -14,6 +17,7 @@ cd easy-frame
 composer install
     
 #ngingx
+
 配置vhost
 
 配置host
@@ -28,9 +32,11 @@ composer install
     }
 
 #注意：
+
     apps\config有两种环境的配置，dev为开发环境，pro为线上环境，请自行修改
     
 #作者
+
 Shuaiwei Hao
 
 homepage: www.51hsw.com
@@ -38,6 +44,7 @@ homepage: www.51hsw.com
 email:409328820@qq.com
     
 #目录文档
+
 webroot\
    
    apps（项目目录）  
