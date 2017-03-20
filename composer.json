@@ -1,0 +1,30 @@
+{
+  "name": "easy/framework",
+  "description": "easy-frame is php farme",
+  "license": "MIT",
+  "version": "1.0.0",
+  "homepage": "https://www.51hsw.com/",
+  "keywords": [
+    "apps",
+    "core",
+    "cache",
+    "pdo",
+    "log",
+    "framework",
+    "socket",
+    "framework"
+  ],
+  "authors": [
+    {
+      "name": "Shuaiwei Hao",
+      "email": "409328820@qq.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "./"
+    }
+  }
+}
