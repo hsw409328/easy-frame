@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Core;
+
+use MongoDB\Driver\Exception\ExecutionTimeoutException;
+
 /**
  * Redis 单例模式扩展
  * Created by PhpStorm.
@@ -11,12 +14,16 @@ namespace App\Core;
 class Redis
 {
     protected static $_instance = null;
+    private $_redisObject = null;
 
     private function __construct()
     {
-        $redisObj = new \Redis();
-        $redisObj->connect(Core::$config['redis']['host'], Core::$config['redis']['port']);
-        return $redisObj;
+        try {
+            $this->_redisObject = new \Redis();
+            $this->_redisObject->connect(Core::$config['redis']['host'], Core::$config['redis']['port']);
+        } catch (ExecutionTimeoutException $e) {
+            var_dump($e->getMessage());
+        }
     }
 
     public static function getInstance()
@@ -39,7 +46,7 @@ class Redis
      */
     public function get($key)
     {
-        $rs = self::$_instance->get($key);
+        $rs = $this->_redisObject->get($key);
         $rs_arr = json_decode($rs, true);
         if (is_null($rs_arr)) {
             return $rs;
@@ -55,7 +62,7 @@ class Redis
      */
     public function set($key, $value)
     {
-        self::$_instance->set($key, $value);
+        $this->_redisObject->set($key, $value);
     }
 
     /**
@@ -66,7 +73,7 @@ class Redis
      */
     public function setEx($key, $value, $timeout = 3600)
     {
-        self::$_instance->setex($key, $timeout, $value);
+        $this->_redisObject->setex($key, $timeout, $value);
     }
 
     /**
@@ -74,8 +81,9 @@ class Redis
      * @param $key
      * @return mixed
      */
-    public function getTtl($key){
-        return self::$_instance->ttl($key);
+    public function getTtl($key)
+    {
+        return $this->_redisObject->ttl($key);
     }
 
 }

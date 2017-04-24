@@ -48,6 +48,7 @@ class Test extends \App\Core\Controller
 
     function testredis(){
         $obj = Redis::getInstance();
-        var_dump($obj);
+        $obj->set('test','test');
+        echo $obj->get('test');
     }
 }
