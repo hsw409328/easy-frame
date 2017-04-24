@@ -40,7 +40,7 @@ class Core
     {
         $rs = self::parseRoute();
         $class_name = isset($rs[1]) ? $rs[1] : '';
-        $class_name = "App\\Apps\\Controller\\" . $class_name;
+        $class_name = "App\\Apps\\Controller\\" . ucwords($class_name);
         if (!class_exists($class_name)) {
             self::setError();
         } else {
