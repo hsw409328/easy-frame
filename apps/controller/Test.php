@@ -8,6 +8,7 @@
 namespace App\Apps\Controller;
 
 use App\Core\Core;
+use App\Core\Redis;
 
 class Test extends \App\Core\Controller
 {
@@ -43,5 +44,10 @@ class Test extends \App\Core\Controller
         $dbRs = $obj->getAll();
         $this->assign(['res' => $dbRs]);
         $this->display('test/assign');
+    }
+
+    function testredis(){
+        $obj = Redis::getInstance();
+        var_dump($obj);
     }
 }
