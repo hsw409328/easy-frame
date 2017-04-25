@@ -9,7 +9,7 @@ namespace App\Core;
 
 class Controller
 {
-    public $template_dir = 'view';
+    public $template_dir = 'View';
     public $_tpl_var = [];
 
     function __construct()
