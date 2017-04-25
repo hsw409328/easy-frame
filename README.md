@@ -103,6 +103,8 @@ webroot\
     支持lnmp
     支持wnmp
     支持wamp
+    支持Redis扩展，配置文件Apps\Config\dev or \Apps\Config\pro里的redis.php
+    
 
 #后续
 待定
