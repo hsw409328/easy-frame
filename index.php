@@ -8,9 +8,15 @@
 define('ERROR_INIT', 'on');
 define('DEBUG', 'on');
 define('WEBPATH', __DIR__);
-define('WEBROOT', 'http://test.api.com');
+define('WEBROOT', 'http://ef.jd.com');
 define('WEBLOG', 1);
 define('ENVIRONMENT', isset($_SERVER['API_ENV']) ? $_SERVER['API_ENV'] : 'dev');
+
+//bootstrap sytle
+define('BS_CSS',WEBROOT.'/vendor/twbs/bootstrap/dist/Css/');
+define('BS_JS',WEBROOT.'/vendor/twbs/bootstrap/dist/js/');
+define('TH_JS',WEBROOT.'/vendor/bordercloud/tether/dist/js/tether.js');
+define('JQ_JS',WEBROOT.'/vendor/components/jquery/jquery.min.js');
 
 if (ERROR_INIT == 'on') {
     ini_set("display_errors", "On");
