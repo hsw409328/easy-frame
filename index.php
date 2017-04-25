@@ -15,13 +15,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 switch (ENVIRONMENT) {
     case 'dev':
-        App\Core\Core::loadConfig(WEBPATH . '/apps/config/dev/');
+        App\Core\Core::loadConfig(WEBPATH . '/Apps/Config/dev/');
         break;
     case 'pro':
-        App\Core\Core::loadConfig(WEBPATH . '/apps/config/pro/');
+        App\Core\Core::loadConfig(WEBPATH . '/Apps/Config/pro/');
         break;
     default:
-        App\Core\Core::loadConfig(WEBPATH . '/apps/config/dev/');
+        App\Core\Core::loadConfig(WEBPATH . '/Apps/Config/dev/');
         break;
 }
 
