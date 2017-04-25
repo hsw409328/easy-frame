@@ -98,5 +98,11 @@ webroot\
    
    composer.json（自动加载及依赖）
 
+#Update History
+    支持lamp
+    支持lnmp
+    支持wnmp
+    支持wamp
+
 #后续
 待定
