@@ -104,7 +104,8 @@ webroot\
     支持wnmp
     支持wamp
     支持Redis扩展，配置文件Apps\Config\dev or \Apps\Config\pro里的redis.php
-    
+    新增图片操作类，支持远程图片下载到本地，图片流上传，验证码
+    添加.htaccess，需要开启rewrite模块
 
 #后续
 待定
