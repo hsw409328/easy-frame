@@ -5,10 +5,12 @@
  * Date: 17/3/17
  * Time: 下午4:13
  */
+
 namespace App\Apps\Controller;
 
 use App\Core\Core;
 use App\Core\Redis;
+use App\Core\Image;
 
 class Test extends \App\Core\Controller
 {
@@ -40,15 +42,37 @@ class Test extends \App\Core\Controller
 
     function testassign()
     {
-        $obj = new \App\Apps\Model\Test();
-        $dbRs = $obj->getAll();
-        $this->assign(['res' => $dbRs]);
+        //$obj = new \App\Apps\Model\Test();
+        //$dbRs = $obj->getAll();
+        $this->assign(['res' => '123123']);
         $this->display('test/assign');
     }
 
-    function testredis(){
+    function testredis()
+    {
         $obj = Redis::getInstance();
-        $obj->set('test','test');
+        $obj->set('test', 'test');
         echo $obj->get('test');
+    }
+
+    function curlimg()
+    {
+        $imgurl = $this->input('url');
+        if (empty($imgurl)) {
+            $this->_jsonEn(0, '未找到参数');
+        }
+        $obj = new Image();
+        $rs = $obj->saveImageLocal($imgurl);
+        if (!$rs) {
+            $this->_jsonEn(2, '类型不匹配');
+        }
+        $this->_jsonEn(1, $rs);
+    }
+
+    function validateImage()
+    {
+        $obj = new Image();
+        $obj->validateImage();
+        die();
     }
 }

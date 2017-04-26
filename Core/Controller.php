@@ -5,6 +5,7 @@
  * Date: 17/3/17
  * Time: 下午4:41
  */
+
 namespace App\Core;
 
 class Controller
@@ -15,6 +16,22 @@ class Controller
     function __construct()
     {
 
+    }
+
+    function input($item = '')
+    {
+        $_tmpRs = $_REQUEST;
+        if (empty($item)) {
+            foreach ($_tmpRs as $k => $v) {
+                $_tmpRs[$k] = addslashes($v);
+            }
+            return $_tmpRs;
+        }
+        if (isset($_tmpRs[$item])) {
+            return addslashes($_tmpRs[$item]);
+        } else {
+            return null;
+        }
     }
 
     function __call($name, $arguments)

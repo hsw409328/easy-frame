@@ -5,6 +5,7 @@
  * Date: 17/3/17
  * Time: 下午4:17
  */
+
 namespace App\Core;
 
 class Core
@@ -27,7 +28,8 @@ class Core
 
     static function parseRoute()
     {
-        $_params = explode('/', $_SERVER['QUERY_STRING']);
+        //$_params = explode('/', $_SERVER['QUERY_STRING']);
+        $_params = explode('/', $_SERVER['REQUEST_URI']);
         return $_params;
     }
 
@@ -38,6 +40,7 @@ class Core
 
     static function runMVC()
     {
+        self::startSession();
         $rs = self::parseRoute();
         $class_name = isset($rs[1]) ? $rs[1] : '';
         $class_name = "App\\Apps\\Controller\\" . ucwords($class_name);
@@ -49,6 +52,11 @@ class Core
             $func_name = isset($rs[2]) ? $rs[2] : '';
             $obj->$func_name();
         }
+    }
+
+    static function startSession()
+    {
+        session_start();
     }
 
     static function setError($msg = '404 Not Found')
