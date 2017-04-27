@@ -37,6 +37,9 @@ class Test extends \App\Core\Controller
 
     function testview()
     {
+        $this->assign('web_title', Core::$config['config']['web_title']);
+        $this->assign('web_desc', Core::$config['config']['web_desc']);
+        $this->assign('web_keyword', Core::$config['config']['web_keyword']);
         $this->display('index/index');
     }
 

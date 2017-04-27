@@ -10,10 +10,10 @@
 
     <link rel="stylesheet" href="<?php echo BS_CSS, 'bootstrap.Css'; ?>"/>
     <link rel="stylesheet" href="/Public/Css/cover.css">
-    <script src="<?php echo JQ_JS;?>"></script>
+    <script src="<?php echo JQ_JS; ?>"></script>
 
     <script src="<?php echo TH_JS; ?>"></script>
     <script src="<?php echo BS_JS, 'bootstrap.js'; ?>"></script>
-
+    <script src="/Public/Js/easy.frame.js"></script>
 </head>
 <body>
